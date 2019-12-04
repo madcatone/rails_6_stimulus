@@ -5,11 +5,16 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events_json = @events.pluck(:id, :name).to_h.to_json
+    @events_json = @events.map(&:to_json)
     respond_to do |format|
       format.html
       format.json { render json: @events_json }
     end
+  end
+
+  def async
+    @events = Event.all
+    @events_json = @events.map(&:to_json)
   end
 
   # GET /events/1
