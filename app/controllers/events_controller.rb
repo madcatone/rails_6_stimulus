@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events_json = @events.map(&:to_json)
+    @events_json = @events.each { |el| el.output="#{el.id},#{el.name}"}.map(&:to_json)
     respond_to do |format|
       format.html
       format.json { render json: @events_json }

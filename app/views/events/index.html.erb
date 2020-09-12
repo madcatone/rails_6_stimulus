@@ -6,7 +6,7 @@
 
   <thead>
     <tr>
-      <th></th>
+      <th>ID</th>
       <th>Name</th>
       <th>Desc</th>
       <th>No</th>
@@ -25,7 +25,7 @@
         </td>
         <td data-target="events.name"><%= event.name %></td>
         <td data-target="events.desc"><%= event.desc %></td>
-        <td data-target="events.no"><%#= event.no %></td>
+        <td data-target="events.no"><%= event.no %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
